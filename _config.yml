@@ -34,9 +34,9 @@ collections:
 
 # Navigation bar links.
 navigation:
-  - title: 主页 Home
+  - title: About me 关于我
     link: /
-  - title: 科研 Research
+  - title: Chat with me 聊聊天
     link: /research.html
-  - title: 论文 Publications
+  - title: Playground 小游戏区 
     link: /publications.html
