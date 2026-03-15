@@ -34,9 +34,9 @@ collections:
 
 # Navigation bar links.
 navigation:
-  - title: About me 关于我
+  - title: My Universe
     link: /
-  - title: Chat with me 聊聊天
+  - title: Brain Chat
     link: /research.html
-  - title: Playground 小游戏区 
+  - title: Mini Games
     link: /publications.html
