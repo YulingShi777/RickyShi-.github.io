@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Brython Graphic Game</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
+    <style>
+        body { text-align: center; font-family: sans-serif; }
+        #game-container { position: relative; width: 500px; height: 400px; border: 2px solid black; margin: auto; background-color: lightyellow; }
+        #target { position: absolute; width: 30px; height: 30px; background-color: red; border-radius: 50%; cursor: pointer; }
+        #score-panel { font-size: 20px; font-weight: bold; margin: 10px; }
+    </style>
+</head>
+<body onload="brython()">
+    <h2>HIT THE RED POINT! (Brython 驱动)</h2>
+    <div id="score-panel">得分: <span id="score">0</span></div>
+    <div id="game-container">
+        <div id="target"></div>
+    </div>
+    <p>目标：在 15 秒内点击红圈尽量多次！</p>
+
+    <script type="text/python">
+        from browser import document, window, alert, timer
+        import random
+
+        # 初始化数据
+        score = 0
+        time_left = 10
+        target = document["target"]
+        score_display = document["score"]
+
+        def move_target():
+            # 获取容器大小并随机移动目标
+            container = document["game-container"]
+            x = random.randint(0, container.offsetWidth - 40)
+            y = random.randint(0, container.offsetHeight - 40)
+            target.style.left = f"{x}px"
+            target.style.top = f"{y}px"
+
+        def target_clicked(ev):
+            global score, time_left
+            if time_left > 0:
+                score += 1
+                score_display.text = score
+                move_target()
+
+        # 游戏主计时器 (1秒一次)
+        def game_timer():
+            global time_left
+            time_left -= 1
+            if time_left <= 0:
+                alert(f"时间到！你的最终得分是: {score}")
+                target.style.display = 'none' # 隐藏目标
+            else:
+                pass # 这里可以是更高级的逻辑
+
+        # 绑定点击事件
+        target.bind("click", target_clicked)
+
+        # 启动游戏：先动起来，再设定计时
+        move_target()
+        timer.set_interval(game_timer, 1000)
+
+    </script>
+</body>
+</html>
