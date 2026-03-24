@@ -12,7 +12,7 @@ encoding: utf-8
 # Sections on the "people" page.
 roles:
   - key: faculty
-    name： 
+    name: 
   - key: grad
     name: 
   - key: 
