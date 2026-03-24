@@ -2,8 +2,7 @@
 layout: default
 title: Code
 ---
-This is an example of an additional page you could add to the site (and its navigation).
-
-If you like this template, find our group's other code here:
-
- * [uwsampa on GitHub](https://github.com/uwsampa/)
+<div style="text-align: center; margin-top: 30px;">
+    <h3>欢迎试玩我的 Python 小游戏</h3>
+    <iframe src="https://yulingshi777.github.io/RickyShi-.github.io/game/" width="100%" height="550px" style="border: 2px solid #ddd; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"></iframe>
+</div>
